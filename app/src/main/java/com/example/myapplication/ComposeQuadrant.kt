@@ -2,7 +2,6 @@ package com.example.myapplication
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -51,24 +50,23 @@ fun ComposeQuadrant(modifier: Modifier = Modifier) {
 
 @Composable
 fun Quadrant(name: String, description: String, color: Color, modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier.background(color = color)
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+        modifier = modifier
+            .background(color = color)
+            .fillMaxSize()
+            .padding(16.dp)
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-            modifier = modifier
-                .fillMaxSize()
-                .padding(16.dp)
-        ) {
-            Text(
-                text = name,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
-            Text(text = description, textAlign = TextAlign.Justify)
-        }
+        Text(
+            text = name,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+        Text(text = description, textAlign = TextAlign.Justify)
     }
+
 }
 
 @Preview(showBackground = true)
